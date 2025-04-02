@@ -109,6 +109,7 @@
     </p>
     <p>
         I also started using Secure Shell (SSH) to connect to the Pi-Hole instead of connecting the Pi-Hole to a monitor and using it. I used PuTTY on my main computer and used the IP address of the Pi-Hole to connect to it. (Finding your IP is as easy as typing “ip a” into the terminal and reading the numbers that come after “inet,” like 192.168.68.71.) This meant that I could now copy and paste commands into the terminal instead of having to painfully type them manually.
+        <img src="./images/ipa.gif"alt="Animatedipafind">
     </p>
     <p>
         Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
