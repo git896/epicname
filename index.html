@@ -130,37 +130,56 @@
   <p>
     Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
   </p> .image-container {
-    display: flex; /* Arranges children (the images) in a row */
-    align-items: center; /* Vertically centers the images relative to each other */
-    /* If you want them aligned to the top instead, use: align-items: flex-start; */
-    /* If you want them aligned to the bottom, use: align-items: flex-end; */
-  
-    gap: 15px; /* Adds space between the two images */
-  
-    /* Optional: Center the whole container on the page */
-    /* justify-content: center; */
-  
-    /* Optional: Add a border to see the container */
-    /* border: 1px solid blue; */
+  display: flex; /* Arranges children (the images) in a row */
+  align-items: center; /* Vertically centers the images relative to each other */
+  /* If you want them aligned to the top instead, use: align-items: flex-start; */
+  /* If you want them aligned to the bottom, use: align-items: flex-end; */
+
+  gap: 15px; /* Adds space between the two images */
+
+  /* Optional: Center the whole container on the page */
+  /* justify-content: center; */
+
+  /* Optional: Add a border to see the container */
+  /* border: 1px solid blue; */
+}
+
+/* Optional: Style the images if needed */
+.image-container img {
+  /* Ensures images don't overflow their container if they are too wide */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Prevents potential extra space below image */
+
+  /* Example: Give specific max widths if needed */
+  /*
+  &.left-image {
+    max-width: 300px;
   }
-  
-  /* Optional: Style the images if needed */
-  .image-container img {
-    /* Ensures images don't overflow their container if they are too wide */
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevents potential extra space below image */
-  
-    /* Example: Give specific max widths if needed */
-    /*
-    &.left-image {
-      max-width: 300px;
-    }
-    &.right-image {
-      max-width: 500px;
-    }
-    */
+  &.right-image {
+    max-width: 500px;
   }
+  */
+}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side-by-Side Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Image Layout Example</h1>
+
+    <div class="image-container">
+        <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists" class="left-image">
+
+        <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink" class="right-image">
+    </div>
+
+</body>
+</html>
   
   </body>
   </html>
