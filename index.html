@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/wifi-symbol.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/wifi-symbol.png">
     <title>How I Configured My Pi-Hole</title>
 
     <style>
@@ -45,14 +45,15 @@
             max-width: 100%; /* Prevent images from overflowing */
             height: auto;
             display: block;
-             /* Optional: Set specific max-widths if needed
+            /* Optional: Set specific max-widths if needed
             &.left-image { max-width: 300px; }
             &.right-image { max-width: 500px; }
             */
         }
 
-        /* Style for the flowchart image */
-        .flowchart-image {
+        /* Style for general content images (like flowchart, graph) */
+        /* Renamed class from flowchart-image for broader use */
+        .content-image {
              display: block; /* Prevent extra space below */
              max-width: 100%; /* Make it responsive */
              height: auto;
@@ -61,7 +62,7 @@
         }
 
     </style>
-    </head>
+</head>
 <body>
 
     <h1>How I Configured My Pi-Hole</h1>
@@ -84,7 +85,7 @@
         Next, I had to figure out the basics of how Pi-Hole works.
     </p>
 
-    <img src="./images/Flowchart-pi-hole.jpg" alt="Flowchart-Pi-Hole" class="flowchart-image">
+    <img src="./images/Flowchart-pi-hole.jpg" alt="Flowchart-Pi-Hole" class="content-image">
 
     <h2>Explanations of the Terms Used</h2>
     <ul>
@@ -113,13 +114,16 @@
         Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
     </p>
 
-    <h2>Admin Interface Example</h2> <div class="image-container">
+    <h2>Admin Interface Example</h2>
+    <div class="image-container">
         <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists" class="left-image">
         <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink" class="right-image">
     </div>
+
     <p>At first, the Pi-hole dashboard graph showed no activity after setup. I realized this was because clients on my network weren't directed to use it for DNS. By setting the Pi-hole as the default DHCP server on my router (or configuring the router's DHCP to assign the Pi-hole's IP as DNS), traffic began flowing through it, and the graphs showed traffic through the Pi-Hole. I also reserved a static IP for the Raspberry Pi to guarantee its address wouldn't change.
     </p>
-    <img src="./images/GraphofQueries.png" alt="queriesgraph">
+
+    <img src="./images/GraphofQueries.png" alt="queriesgraph" class="content-image">
 
 </body>
 </html>
