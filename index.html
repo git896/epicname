@@ -26,13 +26,56 @@
  Once powered on, I realized that the board did not have any USB ports, so I had to order an adapter to let me connect a keyboard to the terminal. Next, I had to figure out the basics of how Pi-Hole works.
     </p>
          <img src="https://postimg.cc/0M2yqfYB" alt="FlowchartOfPi-Hole"
-          <p><br></p>
-<p><span>************ of the ***** used above:</span></p>
-<p><strong><span>IP</span></strong><span>: Each ****** ********* to the ******** has its ****** IP address, which is used to identify ** *** communicate with others on the network.</span></p>
-<p><strong><span>DNS</span></strong><span>: Domain **** ****** is used to ********* domain names **** Google.*** into ** addresses that computers can use to find what website you *** looking for. It is ****** **** a phone book, having *** corresponding IP addresses for each time your computer ***** a request ** *** DNS server. This is what the Pi-**** uses ** block ads, filtering out *** *** trackers, *** allowing legitimate websites ** be forwarded ** the normal DNS servers like Google, Cloudflare, etc.</span></p>
-<p><strong><span>DNS Query</span></strong><span>: It is a request a ****** on *** network ***** to the *** ****** to find *** IP ******* **** corresponds to the domain the **** is ****** to access.</span></p>
-<p><strong><span>DHCP:&nbsp;</span></strong><span>******* Host Configuration Protocol, which ** **** to dynamically assign IP addresses to devices ** the network they ******* to. A DHCP ****** also has a **** of ** addresses ** can give out to new devices **** connect to the network *** *** also reserve specific IP addresses for devices that *** use a static IP address.&nbsp;</span></p>
-<p><span>After I had ********* the OS and inserted it into my Raspberry Pi, I was now ***** to install Pi hole using the terminal. I went to their main website (</span><a href="https://pi-hole.net"><u><span>https://pi-hole.net</span></u></a><span>) and ******** ***** step-by-step guide ** how ** ******* Pi **** by using the curl command. Once it was done installing, I got a password to use the ***** panel. I also ******* using&nbsp;</span><strong><span>Secure Shell (SSH)</span></strong><span>&nbsp;** connect ** the Pi-**** instead of ********** the Pi-**** ** a monitor *** ***** it. I used PuTTY on ** main computer and used the ** ******* of *** Pi-Hole to connect to it. (Finding your IP is as easy as typing &ldquo;ip a&rdquo; into the terminal and ******* *** numbers that **** after &ldquo;inet,&rdquo; **** 192.168.68.71) This meant **** I could *** **** and paste ******** **** the terminal instead ** ****** to painfully copy it manually. Now, I *** to ********* *** ********** in *** Pi-**** *** add ***** of domains and trackers **** the Pi-Hole should block. I **** StevenBlack&rsquo;s ******* Hosts List (</span><a href="https://github.com/StevenBlack/hosts"><u><span>https://github.com/StevenBlack/hosts</span></u></a><span>) *** (</span><a href="https://firebog.net"><u><span>https://firebog.net</span></u></a><span>) ** find lists that I could ***** **** my Pi-Hole. On *** Firebog list, *** I need to do to bring it **** your Pi-Hole is to copy the link and paste ** into the Lists part ** the Admin Web Interface which ** ***** here, and then pasting that link into *** address search bar, *** ******** &ldquo;</span><strong><span>Add Blocklist</span></strong><span>&rdquo; ** if you click &ldquo;*** Allowlist&rdquo; it will let ***** trackers/domains bypass your Pi-Hole.&nbsp;</span></p>
-<div style="color: red; font-size: 12px; width: 600px; margin: 0 auto; text-align: center;">Created with <a href="https://wordtohtml.net/">WordToHTML.net</a> trial.</div>
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pi-Hole Setup Explanation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Explanations of the Terms Used</h1>
+  <ul>
+    <li>
+      <strong>IP:</strong> Each device connected to the Internet has its unique IP address, which is used to identify it and communicate with others on the network.
+    </li>
+    <li>
+      <strong>DNS:</strong> Domain Name System is used to translate domain names like <em>Google.com</em> into IP addresses that computers can use to find what website you are looking for. It is almost like a phone book, having the corresponding IP addresses for each time your computer sends a request to the DNS server. This is what the Pi-Hole uses to block ads, filtering out ads and trackers, and allowing legitimate websites to be forwarded to the normal DNS servers like Google, Cloudflare, etc.
+    </li>
+    <li>
+      <strong>DNS Query:</strong> It is a request a device on the network makes to the DNS server to find the IP address that corresponds to the domain the user is trying to access.
+    </li>
+    <li>
+      <strong>DHCP:</strong> Dynamic Host Configuration Protocol, which is used to dynamically assign IP addresses to devices on the network they connect to. A DHCP server also has a pool of IP addresses it can give out to new devices that connect to the network and can also reserve specific IP addresses for devices that may use a static IP address.
+    </li>
+  </ul>
+
+  <h2>Pi-Hole Installation and Configuration</h2>
+  <p>
+    After I had installed the OS and inserted it into my Raspberry Pi, I was now ready to install Pi-Hole using the terminal. I went to their main website (<a href="https://pi-hole.net" target="_blank">https://pi-hole.net</a>) and followed their step-by-step guide on how to install Pi-Hole by using the curl command. Once it was done installing, I got a password to use the admin panel.
+  </p>
+  <p>
+    I also started using Secure Shell (SSH) to connect to the Pi-Hole instead of connecting the Pi-Hole to a monitor and using it. I used PuTTY on my main computer and used the IP address of the Pi-Hole to connect to it. (Finding your IP is as easy as typing “ip a” into the terminal and reading the numbers that come after “inet,” like 192.168.68.71.) This meant that I could now copy and paste commands into the terminal instead of having to painfully type them manually.
+  </p>
+  <p>
+    Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
+  </p>
+</body>
+</html>
+
+          
     </body>
  </html>
