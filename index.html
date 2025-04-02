@@ -38,11 +38,6 @@
   </style>
 </head>
 <body>
-  .image-container {
-    display: flex; /* Arranges children (images) in a row */
-    align-items: center; /* Vertically aligns images in the middle */
-    gap: 10px; /* Optional: Adds some space between the images */
-  }
   <h1>Materials</h1>
   <ul>
     <li>1 Raspberry Pi Zero 2 W</li>
@@ -136,6 +131,8 @@
     Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
   </p>
   <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists"
+  <img src="./images/Subscribed-add-lists.png" alt="add lists"
+
 </body>
 </html>
 
