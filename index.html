@@ -60,26 +60,24 @@
         .ip-info-layout {
             display: flex;
             align-items: center;
-            gap: 20px;              /* Space between items */
+            gap: 20px;
             margin-top: 15px;
             margin-bottom: 15px;
-            flex-wrap: wrap;        /* Allows wrap only if absolutely necessary */
+            flex-wrap: wrap; /* Still allows wrapping on VERY small screens */
         }
 
         .ip-info-layout .ip-image {
             flex-shrink: 0;
-            /* --- USER REQUESTED MAX-WIDTH (NOT CHANGED) --- */
-            max-width: 55%;
-            height: auto;           /* Maintain aspect ratio */
-            /* --- END --- */
+            /* --- ADJUSTED TO PREVENT WRAPPING --- */
+            /* Reduced max-width again to ensure enough space for text */
+            max-width: 45%;  /* Reduced from 60% */
+            height: auto;   /* Maintain aspect ratio */
+            /* --- END OF ADJUSTMENT --- */
         }
 
         .ip-info-layout .ip-text {
             flex-grow: 1;           /* Allow text block to take remaining space */
-            /* --- REMOVED min-width TO PREVENT WRAPPING --- */
-            /* Removed 'min-width: 200px;' to allow text block to shrink more */
-            /* This helps it fit next to the 55% image */
-            /* --- END --- */
+            min-width: 200px;       /* Minimum width before wrapping (might still wrap if container is < ~400px) */
         }
 
     </style>
@@ -139,4 +137,20 @@
          This meant that I could now copy and paste commands into the terminal instead of having to painfully type them manually.
      </p>
      <p>
-        Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find
+        Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
+    </p>
+
+    <h2>Admin Interface Example</h2>
+    <div class="image-container">
+        <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists">
+        <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink">
+    </div>
+
+    <p>
+        At first, the Pi-hole dashboard graph showed no activity after setup. I realized this was because clients on my network weren't directed to use it for DNS. By setting the Pi-hole as the default DHCP server on my router (or configuring the router's DHCP to assign the Pi-hole's IP as DNS), traffic began flowing through it, and the graphs showed traffic through the Pi-Hole. I also reserved a static IP for the Raspberry Pi to guarantee its address wouldn't change.
+    </p>
+
+    <img src="./images/GraphofQueries.png" alt="queriesgraph" class="content-image">
+
+</body>
+</html>
