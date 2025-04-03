@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/wifi-symbol.png">
-    <title>How I Configured My Pi-Hole</title>
-
-    <style>
+    <title>How I Configured My Pi-Hole</title> <style>
         body {
             font-family: 'Trebuchet MS', Arial, sans-serif;
             margin: 20px;
@@ -14,9 +12,16 @@
             background-color: lightblue;
         }
 
-        h1, h2 {
-            color: #333;
+        /* --- UPDATED HEADER COLORS --- */
+        h1 { /* Main page title */
+            color: darkblue; /* Set H1 color to dark blue */
         }
+
+        h2 { /* Sub-headers */
+            color: red; /* Set H2 color to red */
+        }
+        /* Removed the old combined h1, h2 rule */
+        /* --- END OF UPDATE --- */
 
         p {
             margin-bottom: 15px;
@@ -60,41 +65,34 @@
         .ip-info-layout {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 20px;              /* Space between items */
             margin-top: 15px;
             margin-bottom: 15px;
-            flex-wrap: wrap; /* Still allows wrapping on VERY small screens */
+            flex-wrap: wrap;        /* Allows wrap only if absolutely necessary */
         }
 
         .ip-info-layout .ip-image {
             flex-shrink: 0;
-            /* --- ADJUSTED TO PREVENT WRAPPING --- */
-            /* Reduced max-width again to ensure enough space for text */
-            max-width: 45%;  /* Reduced from 60% */
-            height: auto;   /* Maintain aspect ratio */
-            /* --- END OF ADJUSTMENT --- */
+            max-width: 55%;
+            height: auto;           /* Maintain aspect ratio */
         }
 
         .ip-info-layout .ip-text {
             flex-grow: 1;           /* Allow text block to take remaining space */
-            min-width: 200px;       /* Minimum width before wrapping (might still wrap if container is < ~400px) */
+            /* Removed 'min-width: 200px;' */
         }
 
     </style>
 </head>
 <body>
 
-    <h1>How I Configured My Pi-Hole</h1>
-
-    <h2>Materials</h2>
-    <ul>
+    <h1>How I Configured My Pi-Hole</h1> <h2>Materials</h2> <ul>
         <li>1 Raspberry Pi Zero 2 W</li>
         <li>1 microSD card (4gb recommended)</li>
         <li>Micro-USB cable with AC adapter (1 watt minimum)</li>
     </ul>
 
-    <h2>Raspberry Pi Setup & Pi-Hole Overview</h2>
-    <p>
+    <h2>Raspberry Pi Setup & Pi-Hole Overview</h2> <p>
         First, I downloaded <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi Imager</a> from their website so that I could flash an OS onto my microSD card.
     </p>
     <p>
@@ -106,8 +104,7 @@
 
     <img src="./images/Flowchart-pi-hole.jpg" alt="Flowchart-Pi-Hole" class="content-image">
 
-    <h2>Explanations of the Terms Used</h2>
-    <ul>
+    <h2>Explanations of the Terms Used</h2> <ul>
         <li>
             <strong>IP:</strong> Each device connected to the Internet has its unique IP address, which is used to identify it and communicate with others on the network.
         </li>
@@ -122,8 +119,7 @@
         </li>
     </ul>
 
-    <h2>Pi-Hole Installation and Configuration</h2>
-     <p>
+    <h2>Pi-Hole Installation and Configuration</h2> <p>
          After I had installed the OS and inserted it into my Raspberry Pi, I was now ready to install Pi-Hole using the terminal. I went to their main website (<a href="https://pi-hole.net" target="_blank">https://pi-hole.net</a>) and followed their step-by-step guide on how to install Pi-Hole by using the curl command. Once it was done installing, I got a password to use the admin panel and began using Secure Shell (SSH) to connect to the Pi-Hole instead of connecting the Pi-Hole to a monitor and using it. I used PuTTY on my main computer and used the IP address of the Pi-Hole to connect to it.
      </p>
 
@@ -140,8 +136,7 @@
         Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
     </p>
 
-    <h2>Admin Interface Example</h2>
-    <div class="image-container">
+    <h2>Admin Interface Example</h2> <div class="image-container">
         <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists">
         <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink">
     </div>
