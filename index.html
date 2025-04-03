@@ -8,10 +8,10 @@
 
     <style>
         body {
-            font-family: 'Trebuchet MS', Arial, sans-serif; /* Combined font preferences */
+            font-family: 'Trebuchet MS', Arial, sans-serif;
             margin: 20px;
             line-height: 1.6;
-            background-color: lightblue; /* From original style */
+            background-color: lightblue;
         }
 
         h1, h2 {
@@ -20,11 +20,11 @@
 
         p {
             margin-bottom: 15px;
-            letter-spacing: 0.5px; /* From original style */
+            letter-spacing: 0.5px;
         }
 
         ul {
-            list-style: disc inside; /* Keep one consistent style */
+            list-style: disc inside;
             margin-bottom: 20px;
         }
 
@@ -32,44 +32,52 @@
             margin-bottom: 10px;
         }
 
-        /* Styles for the side-by-side image container */
+        /* Styles for the side-by-side image container (Admin Interface Example) */
         .image-container {
             display: flex;
-            align-items: center; /* Vertically center images */
-            gap: 15px; /* Space between images */
-            margin-top: 20px; /* Add some space above the images */
-            margin-bottom: 20px; /* Add some space below the images */
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .image-container img {
-            max-width: 100%; /* Prevent images from overflowing */
+            max-width: 100%;
             height: auto;
             display: block;
         }
 
         /* Style for general content images (like flowchart, graph) */
         .content-image {
-            display: block; /* Prevent extra space below */
-            max-width: 100%; /* Make it responsive */
+            display: block;
+            max-width: 100%;
             height: auto;
             margin-top: 20px;
             margin-bottom: 20px;
         }
 
-        /* Style for the animated GIF - OPTIMIZED / RESPONSIVE */
-        .animated-gif {
-            display: block;     /* Needed for centering and margins */
-            /* --- CHANGED FOR OPTIMAL/RESPONSIVE SIZE --- */
-            max-width: 700px;   /* Set maximum width (adjust as needed) */
-            width: 100%;        /* Allow shrinking to fit container */
-            height: auto;       /* Maintain aspect ratio */
-            /* width: 1280px; -- Removed */
-            /* height: 720px; -- Removed */
-            margin-top: 25px;   /* Space above */
-            margin-bottom: 25px;/* Space below */
-            margin-left: auto;  /* Center horizontally */
-            margin-right: auto; /* Center horizontally */
+        /* --- NEW CSS FOR IP ADDRESS INFO LAYOUT --- */
+        .ip-info-layout {
+            display: flex;          /* Enable Flexbox */
+            align-items: center;    /* Vertically center image and text */
+            gap: 20px;              /* Space between image and text */
+            margin-top: 15px;       /* Space above the container */
+            margin-bottom: 15px;    /* Space below the container */
+            flex-wrap: wrap;        /* Allow wrapping on very small screens */
         }
+
+        .ip-info-layout .ip-image {
+            flex-shrink: 0;         /* Prevent image from shrinking excessively */
+            max-width: 45%;         /* Limit image width (adjust as needed) */
+            height: auto;           /* Maintain aspect ratio */
+            /* Removed fixed width/height and centering margins from original .animated-gif */
+        }
+
+        .ip-info-layout .ip-text {
+            flex-grow: 1;           /* Allow text block to take remaining space */
+            min-width: 200px;       /* Minimum width before wrapping */
+        }
+        /* --- END OF NEW CSS --- */
 
     </style>
 </head>
@@ -115,16 +123,27 @@
 
     <h2>Pi-Hole Installation and Configuration</h2>
      <p>
-         After I had installed the OS and inserted it into my Raspberry Pi, I was now ready to install Pi-Hole using the terminal. I went to their main website (<a href="https://pi-hole.net" target="_blank">https://pi-hole.net</a>) and followed their step-by-step guide on how to install Pi-Hole by using the curl command. Once it was done installing, I got a password to use the admin panel and began using Secure Shell (SSH) to connect to the Pi-Hole instead of connecting the Pi-Hole to a monitor and using it. I used PuTTY on my main computer and used the IP address of the Pi-Hole to connect to it. (Finding your IP is as easy as typing “ip a” into the terminal and reading the numbers that come after “inet,” like 192.168.68.71.) This meant that I could now copy and paste commands into the terminal instead of having to painfully type them manually.
-         <img src="./images/ipa.gif" alt="Showing 'ip a' command output" class="animated-gif">
+         After I had installed the OS and inserted it into my Raspberry Pi, I was now ready to install Pi-Hole using the terminal. I went to their main website (<a href="https://pi-hole.net" target="_blank">https://pi-hole.net</a>) and followed their step-by-step guide on how to install Pi-Hole by using the curl command. Once it was done installing, I got a password to use the admin panel and began using Secure Shell (SSH) to connect to the Pi-Hole instead of connecting the Pi-Hole to a monitor and using it. I used PuTTY on my main computer and used the IP address of the Pi-Hole to connect to it.
      </p>
-    <p>
+
+     <div class="ip-info-layout">
+         <img src="./images/ipa.gif" alt="Showing 'ip a' command output" class="ip-image">
+         <div class="ip-text">
+             (Finding your IP is as easy as typing “ip a” into the terminal and reading the numbers that come after “inet,” like 192.168.68.71.)
+         </div>
+     </div>
+     <p>
+         This meant that I could now copy and paste commands into the terminal instead of having to painfully type them manually.
+     </p>
+     <p>
         Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
     </p>
 
     <h2>Admin Interface Example</h2>
     <div class="image-container">
-        <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists"> <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink"> </div>
+        <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists">
+        <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink">
+    </div>
 
     <p>
         At first, the Pi-hole dashboard graph showed no activity after setup. I realized this was because clients on my network weren't directed to use it for DNS. By setting the Pi-hole as the default DHCP server on my router (or configuring the router's DHCP to assign the Pi-hole's IP as DNS), traffic began flowing through it, and the graphs showed traffic through the Pi-Hole. I also reserved a static IP for the Raspberry Pi to guarantee its address wouldn't change.
