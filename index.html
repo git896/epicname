@@ -96,9 +96,7 @@
     <p>
         First, I downloaded <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi Imager</a> from their website so that I could flash an OS onto my microSD card.
     </p>
-    <p>
-        The Raspberry Pi Zero 2 W has one microSD card slot, two micro-USB slots for power and data, and a camera control port (not used in this project). Once powered on, I realized that the board did not have any USB ports, so I had to order an adapter to let me connect a keyboard to the terminal.
-    </p>
+    <p>        The Raspberry Pi Zero 2 W has one microSD card slot, two micro-USB slots for power and data, and a camera control port (not used in this project). Once powered on, I realized that the board did not have any USB ports, so I had to order an adapter to let me connect a keyboard to use the terminal.</p>
     <p>
         Next, I had to figure out the basics of how Pi-Hole works.
     </p>
@@ -139,7 +137,7 @@
         Now, I had to configure the blocklists in the Pi-Hole and add lists of domains and trackers that the Pi-Hole should block. I used StevenBlack’s Unified Hosts List (<a href="https://github.com/StevenBlack/hosts" target="_blank">https://github.com/StevenBlack/hosts</a>) and <a href="https://firebog.net" target="_blank">https://firebog.net</a> to find lists that I could paste into my Pi-Hole. On the Firebog list, all I needed to do was copy the link and paste it into the Lists part of the Admin Web Interface. Then, by pasting that link into the address search bar and clicking “Add Blocklist” (instead of “Add Allowlist”), the trackers and domains would be properly blocked.
     </p>
 
-    <h2>Admin Interface Example</h2>
+    <h2>Adding Lists Example</h2>
     <div class="image-container">
         <img src="./images/Lists-square-box.jpg" alt="Admin-Panel-Highlightlists">
         <img src="./images/Subscribed-add-lists.png" alt="Newlistsithink">
